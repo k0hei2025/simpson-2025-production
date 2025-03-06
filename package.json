@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://k0hei2025.github.io/simpson-2025-production",
   "scripts": {
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d out",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",

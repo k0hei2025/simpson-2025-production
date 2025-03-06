@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+  // Add assetPrefix for GitHub Pages
+  assetPrefix: process.env.NODE_ENV === 'production' ? '/simpson-2025-production' : '',
 };
 
 export default nextConfig;
