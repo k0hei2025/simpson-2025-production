@@ -1,18 +1,5 @@
-import Image from "next/image";
-import { Geist, Geist_Mono } from "next/font/google";
-import { useRouter } from "next/router";
 import { GetStaticProps } from "next";
-import React, { useEffect } from "react";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import React from "react";
 
 type HomeProps = {
   response: {
@@ -25,12 +12,6 @@ type HomeProps = {
 
 export default function Home({response}:HomeProps) {
 
-  
-
-  const router = useRouter();
-  // Get the base path for assets in production
-  const basePath = process.env.NODE_ENV === 'production' ? '/simpson-2025-production' : '';
-  
   return (
     <div className="container mx-auto mt-10">
       {response.map((character, index) => (
