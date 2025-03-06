@@ -54,3 +54,5 @@ jobs:
     - name: Deploy to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
+      # Only deploy on push to master branch
+      if: github.event_name == 'push' && github.ref == 'refs/heads/master'
