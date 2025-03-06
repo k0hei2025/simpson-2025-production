@@ -35,7 +35,10 @@ jobs:
     - name: Build project
       run: |
         npm run build
+        # Create necessary files for GitHub Pages
         touch out/.nojekyll
+        # Copy 404 page to handle client-side routing
+        cp out/404.html out/index.html || echo "No 404.html found, skipping copy"
     - name: Deploy with gh-pages
       run: |
         git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git

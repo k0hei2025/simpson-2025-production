@@ -1,15 +1,21 @@
 import type { NextConfig } from "next";
 
+// For GitHub Pages deployment
+const isProd = process.env.NODE_ENV === 'production';
+const repoName = 'simpson-2025-production';
+
 const nextConfig: NextConfig = {
   /* config options here */
   reactStrictMode: true,
-  basePath: process.env.NODE_ENV === 'production' ? '/simpson-2025-production' : '',
   output: 'export',
   images: {
     unoptimized: true,
   },
-  // Add assetPrefix for GitHub Pages
-  assetPrefix: process.env.NODE_ENV === 'production' ? '/simpson-2025-production' : '',
+  // Configure paths for GitHub Pages
+  basePath: isProd ? `/${repoName}` : '',
+  assetPrefix: isProd ? `/${repoName}/` : '',
+  // Ensure trailing slash for consistent path handling
+  trailingSlash: true,
 };
 
 export default nextConfig;
