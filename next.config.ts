@@ -5,6 +5,9 @@ const nextConfig: NextConfig = {
   reactStrictMode: true,
   basePath: process.env.NODE_ENV === 'production' ? '/simpson-2025-production' : '',
   output: 'export',
+  images: {
+    unoptimized: true,
+  },
 };
 
 export default nextConfig;
