@@ -7,7 +7,8 @@ const repoName = 'simpson-2025-production';
 const nextConfig: NextConfig = {
   /* config options here */
   reactStrictMode: true,
-  output: 'export',
+  // Comment out for development with API proxy
+  // output: 'export',
   images: {
     unoptimized: true,
   },
@@ -16,6 +17,15 @@ const nextConfig: NextConfig = {
   assetPrefix: isProd ? `/${repoName}/` : '',
   // Ensure trailing slash for consistent path handling
   trailingSlash: true,
+  // Add API proxy configuration
+  async rewrites() {
+    return [
+      {
+        source: '/v1/:path*',
+        destination: 'http://localhost:3001/v1/:path*',
+      },
+    ];
+  },
 };
 
 export default nextConfig;
